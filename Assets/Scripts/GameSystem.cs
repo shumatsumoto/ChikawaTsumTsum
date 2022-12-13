@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameSystem : MonoBehaviour
 {
     // のこり
+    // ・上から落とす:消した数だけ
     // ・スコア
     // ・ドラッグの時
     // 　・Ballを少し大きくする
@@ -87,6 +88,7 @@ public class GameSystem : MonoBehaviour
             {
                 Destroy(removeBalls[i].gameObject);
             }
+            StartCoroutine(ballGenerator.Spawns(removeCount));
         }
         removeBalls.Clear();
         isDragging = false;
