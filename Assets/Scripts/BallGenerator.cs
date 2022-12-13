@@ -13,7 +13,6 @@ public class BallGenerator : MonoBehaviour
     private void Start()
     {
         StartCoroutine(Spawns(40));
-        Debug.Log(ballSprites.Length);
     }
 
     public IEnumerator Spawns(int count)
@@ -22,11 +21,10 @@ public class BallGenerator : MonoBehaviour
         {
             Vector2 pos = new Vector2(Random.Range(-0.2f, 0.2f), 8f);
             GameObject ball = Instantiate(ballPrefab, pos, Quaternion.identity);
-            
             // 画像の設定
             int ballID = Random.Range(0, ballSprites.Length); // 0,1,2,3,4
-            
             ball.GetComponent<SpriteRenderer>().sprite = ballSprites[ballID];
+            ball.GetComponent<Ball>().id = ballID;
             yield return new WaitForSeconds(0.04f);
         }
     }
