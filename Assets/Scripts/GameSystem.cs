@@ -27,7 +27,7 @@ public class GameSystem : MonoBehaviour
     {
         score = 0;
         AddScore(0);
-        StartCoroutine(ballGenerator.Spawns(40));
+        StartCoroutine(ballGenerator.Spawns(ParamsSO.Entity.initBallCount));
     }
 
     void AddScore(int point)
@@ -83,7 +83,7 @@ public class GameSystem : MonoBehaviour
             {
                 // 距離が近い
                 float distance = Vector2.Distance(ball.transform.position, currentDraggingBall.transform.position);
-                if (distance < 1.5)
+                if (distance < ParamsSO.Entity.ballDistance)
                 {
                     AddRemoveBall(ball);
                 }
@@ -100,7 +100,7 @@ public class GameSystem : MonoBehaviour
                 Destroy(removeBalls[i].gameObject);
             }
             StartCoroutine(ballGenerator.Spawns(removeCount));
-            AddScore(removeCount * 100);
+            AddScore(removeCount * ParamsSO.Entity.scorePoint);
         }
         removeBalls.Clear();
         isDragging = false;
