@@ -309,3 +309,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballPrefab: {fileID: 2423699566176364671, guid: ec125124f7f584b5d8f60b25558802b4, type: 3}
+  ballSprites:
+  - {fileID: 21300000, guid: 805ab28ab0bca47e3abf06a0ee14f49a, type: 3}
+  - {fileID: 21300000, guid: a42cded71b0414d0490a2a78bacac428, type: 3}
+  - {fileID: 21300000, guid: 98448aa40ad2c4f75be13d2c4e12ea37, type: 3}
+  - {fileID: 21300000, guid: 7659795de7d3d4b09a24cfd1c046b1eb, type: 3}
+  - {fileID: 21300000, guid: 84238e166903d4165b3d2a0b7ddf874b, type: 3}
