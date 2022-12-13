@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameSystem : MonoBehaviour
 {
     // のこり
-    // ・上から落とす:消した数だけ
-    // ・スコア
+    // ・上から落とす:消した数だけ：済
+    // ・スコア:消した数×100：済
     // ・ドラッグの時
     // 　・Ballを少し大きくする
     // 　・色をかえる
@@ -18,11 +19,21 @@ public class GameSystem : MonoBehaviour
     bool isDragging;
     [SerializeField] List<Ball> removeBalls = new List<Ball>();
     Ball currentDraggingBall;
+    int score;
+    [SerializeField] Text scoreText = default;
 
 
     void Start()
     {
+        score = 0;
+        AddScore(0);
         StartCoroutine(ballGenerator.Spawns(40));
+    }
+
+    void AddScore(int point)
+    {
+        score += point;
+        scoreText.text = score.ToString();
     }
 
     void Update()
@@ -89,6 +100,7 @@ public class GameSystem : MonoBehaviour
                 Destroy(removeBalls[i].gameObject);
             }
             StartCoroutine(ballGenerator.Spawns(removeCount));
+            AddScore(removeCount * 100);
         }
         removeBalls.Clear();
         isDragging = false;
