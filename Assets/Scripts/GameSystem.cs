@@ -8,11 +8,13 @@ public class GameSystem : MonoBehaviour
     // のこり
     // ・上から落とす:消した数だけ：済
     // ・スコア:消した数×100：済
+
     // ・ドラッグの時
-    // 　・Ballを少し大きくする
-    // 　・色をかえる
+    // 　・Ballを少し大きくする:Ballをリストに追加するとき大きくする：済
+    // 　・色をかえる：済
     // ・弾けるエフェクト
-    // ・パラメータ調節
+
+    // ・パラメータ調節：済
     // ・音（リクエストがあれば）
 
     [SerializeField] BallGenerator ballGenerator = default;
@@ -102,6 +104,12 @@ public class GameSystem : MonoBehaviour
             StartCoroutine(ballGenerator.Spawns(removeCount));
             AddScore(removeCount * ParamsSO.Entity.scorePoint);
         }
+        // 全てのremoveBallのサイズを戻す
+        for (int i = 0; i < removeCount; i++)
+        {
+            removeBalls[i].GetComponent<SpriteRenderer>().color = Color.white;
+            removeBalls[i].transform.localScale = Vector3.one;
+        }
         removeBalls.Clear();
         isDragging = false;
     }
@@ -111,6 +119,8 @@ public class GameSystem : MonoBehaviour
         currentDraggingBall = ball;
         if (removeBalls.Contains(ball) == false)
         {
+            ball.transform.localScale = Vector3.one * 1.4f;
+            ball.GetComponent<SpriteRenderer>().color = Color.yellow;
             removeBalls.Add(ball);
         }
     }
