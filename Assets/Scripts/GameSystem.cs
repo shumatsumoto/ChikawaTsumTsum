@@ -44,7 +44,7 @@ public class GameSystem : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            // 右クリックを押し込んだ時
+            // 右クリックを押し込んだ時:ボムなら周囲を含めて爆破
             OnDragBigin();
         }
         else if (Input.GetMouseButtonUp(0))
@@ -67,8 +67,17 @@ public class GameSystem : MonoBehaviour
         if (hit && hit.collider.GetComponent<Ball>())
         {
             Ball ball = hit.collider.GetComponent<Ball>();
-            AddRemoveBall(ball);
-            isDragging = true;
+            // ボムなら周囲を含めて爆破
+            // それ以外なら通常通り
+            if (ball.IsBomb())
+            {
+                // 爆破
+            }
+            else
+            {
+                AddRemoveBall(ball);
+                isDragging = true;
+            }
         }
     }
     void OnDragging()

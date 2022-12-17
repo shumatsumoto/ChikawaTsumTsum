@@ -510,6 +510,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 98448aa40ad2c4f75be13d2c4e12ea37, type: 3}
   - {fileID: 21300000, guid: 7659795de7d3d4b09a24cfd1c046b1eb, type: 3}
   - {fileID: 21300000, guid: 84238e166903d4165b3d2a0b7ddf874b, type: 3}
+  bombSprite: {fileID: 21300000, guid: 861ec149594fa4a70b2cccab2d2a655a, type: 3}
 --- !u!1 &1877177806
 GameObject:
   m_ObjectHideFlags: 0

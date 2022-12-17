@@ -14,4 +14,9 @@ public class Ball : MonoBehaviour
         GameObject explosion = Instantiate(explosionPrefab, transform.position, transform.rotation);
         Destroy(explosion, 0.2f);
     }
+
+    public bool IsBomb()
+    {
+        return id == -1;
+    }
 }
