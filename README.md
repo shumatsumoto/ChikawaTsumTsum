@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://user-images.githubusercontent.com/11171872/203345580-40a14fa9-b1f0-4c29-a042-138ff78f7d9b.jpg" width="500">
+  <img src="https://user-images.githubusercontent.com/11171872/208252529-3d622786-f335-40c2-9736-45256c3cd394.gif" width="500">
 </div>
 
 <h1 align="center">Chikawa TsumTsum</h1>
