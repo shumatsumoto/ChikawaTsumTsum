@@ -25,6 +25,7 @@ public class GameSystem : MonoBehaviour
     Ball currentDraggingBall;
     int score;
     [SerializeField] Text scoreText = default;
+    [SerializeField] GameObject pointEffectPrefab = default;
 
 
     void Start()
@@ -114,7 +115,9 @@ public class GameSystem : MonoBehaviour
                 removeBalls[i].Explosion();
             }
             StartCoroutine(ballGenerator.Spawns(removeCount));
-            AddScore(removeCount * ParamsSO.Entity.scorePoint);
+            int score = removeCount * ParamsSO.Entity.scorePoint;
+            AddScore(score);
+            SpawnPointEffect(removeBalls[removeBalls.Count - 1].transform.position, score);
         }
         // 全てのremoveBallのサイズを戻す
         for (int i = 0; i < removeCount; i++)
@@ -160,6 +163,13 @@ public class GameSystem : MonoBehaviour
             explosionList[i].Explosion();
         }
         StartCoroutine(ballGenerator.Spawns(removeCount));
-        AddScore(removeCount * ParamsSO.Entity.scorePoint);
+        int score = removeCount * ParamsSO.Entity.scorePoint;
+        AddScore(score);
+        SpawnPointEffect(bomb.transform.position, score);
+    }
+
+    void SpawnPointEffect(Vector2 position, int score)
+    {
+        Instantiate(pointEffectPrefab, position, Quaternion.identity);
     }
 }

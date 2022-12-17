@@ -322,6 +322,7 @@ MonoBehaviour:
   ballGenerator: {fileID: 1853925232}
   removeBalls: []
   scoreText: {fileID: 900158880}
+  pointEffectPrefab: {fileID: 5086428672457273196, guid: 01c8448694cdd4bec947152a80759902, type: 3}
 --- !u!1 &900158878
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,7 +374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9150943, g: 0.35826805, b: 0.40224883, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -382,7 +383,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 80
+    m_FontSize: 90
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
