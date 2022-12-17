@@ -12,10 +12,12 @@ public class GameSystem : MonoBehaviour
     // ・ドラッグの時
     // 　・Ballを少し大きくする:Ballをリストに追加するとき大きくする：済
     // 　・色をかえる：済
-    // ・弾けるエフェクト
-
+    // ・弾けるエフェクト：済
     // ・パラメータ調節：済
+
     // ・音（リクエストがあれば）
+    // ・タイトル（リクエストがあれば）
+    // ・カウントダウン（リクエストがあれば）
 
     [SerializeField] BallGenerator ballGenerator = default;
     bool isDragging;
@@ -99,7 +101,7 @@ public class GameSystem : MonoBehaviour
         {
             for (int i = 0; i < removeCount; i++)
             {
-                Destroy(removeBalls[i].gameObject);
+                removeBalls[i].Explosion();
             }
             StartCoroutine(ballGenerator.Spawns(removeCount));
             AddScore(removeCount * ParamsSO.Entity.scorePoint);
