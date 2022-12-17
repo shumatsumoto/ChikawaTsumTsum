@@ -25,7 +25,7 @@ public class BallGenerator : MonoBehaviour
 
             // もしボムなら ballID = -1
             // それ以外なら 今までと同じ
-            if (Random.Range(0, 100) < 30) // 30%の確率でtrueになる
+            if (Random.Range(0, 100) < 5) // xx%の確率でtrueになる
             {
                 ballID = -1;
                 ball.GetComponent<SpriteRenderer>().sprite = bombSprite;

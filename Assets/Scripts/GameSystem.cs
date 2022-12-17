@@ -72,6 +72,7 @@ public class GameSystem : MonoBehaviour
             if (ball.IsBomb())
             {
                 // 爆破
+                Explosion(ball);
             }
             else
             {
@@ -134,5 +135,31 @@ public class GameSystem : MonoBehaviour
             ball.GetComponent<SpriteRenderer>().color = Color.yellow;
             removeBalls.Add(ball);
         }
+    }
+
+    // bombによる爆破
+    void Explosion(Ball bomb)
+    {
+        List<Ball> explosionList = new List<Ball>();
+        // ボムを中心に爆破するBallを集める
+        Collider2D[] hitObj = Physics2D.OverlapCircleAll(bomb.transform.position, ParamsSO.Entity.bombRange);
+        for (int i = 0; i < hitObj.Length; i++)
+        {
+            // Ballだったら爆破リストに追加する
+            Ball ball = hitObj[i].GetComponent<Ball>();
+            if (ball)
+            {
+                explosionList.Add(ball);
+            }
+        }
+        // 爆破する
+
+        int removeCount = explosionList.Count;
+        for (int i = 0; i < removeCount; i++)
+        {
+            explosionList[i].Explosion();
+        }
+        StartCoroutine(ballGenerator.Spawns(removeCount));
+        AddScore(removeCount * ParamsSO.Entity.scorePoint);
     }
 }
